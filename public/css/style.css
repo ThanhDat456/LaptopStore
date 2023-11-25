@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Roboto+Slab:wght@100&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courgette', cursive;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  
+    gap:30px;
+}
+.drop{
+    position:relative;
+    width:150px;
+    height:150px;
+    background-color: rgb(230, 161, 161);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:2.5em;
+    color:#333;
+    text-shadow: -2px -2px 5px #fff;
+    filter:drop-shadow(4px 4px 10px #eee);
+    /*  box-shadow : trên-trong  dưới-ngoài viền-trên-trong->dưới-ngoài dưới-trong */
+    box-shadow: inset 10px 10px 10px rgba(0, 00, 0, 0.05),
+    10px 25px 10px  rgba(230, 161, 161,50%),
+    15px 20px 20px rgba(0, 00, 0, 0.05),inset -10px -10px 15px rgba(255,255,255,0.9);
+}
+
+.drop::before{
+    content: '';
+    width:20px;
+    height:20px;
+    background-color: #fff;
+    position:absolute;
+    top:35px;
+    left:20px;
+    border-radius:50%;
+    filter:blur(2px);
+} 
+.drop::after{
+    content: '';
+    width:15px;
+    height:15px;
+    background-color: #fff;
+    position:absolute;
+    top:20px;
+    left:50px;
+    border-radius:50%;
+    filter:blur(3px);
+}
+.nav{
+    width:150px;
+    height:150px;
+    background-color: rgba(73, 235, 194, 0.986);
+    border-radius:50%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    font-size:2.5rem;
+    text-shadow: -2px -2px 5px #fff;
+    filter:drop-shadow(4px 4px 10px #eee);
+    box-shadow: inset 10px 10px 10px   rgba(73, 235, 194, 0.986)
+    ,15px 25px 10px  rgba(120, 236, 207, 0.986),
+    15px 20px 20px  rgba(120, 236, 207, 0.986),
+    inset -15px -15px 20px rgba(255, 255, 255, 0.9);
+}
+.nav::before{
+    content: '';
+    width:20px;
+    height:20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position:absolute;
+    top:10px;
+    right:30px;
+    filter:blur(3px);
+}

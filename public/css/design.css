@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.drop {
+    position: relative;
+    width: 300px;
+    height: 50px;
+}
+.drop::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    width: 12px;
+    height: 2px;
+    background-color: rgba(15, 14, 14);
+    z-index: 10;
+    transform: rotate(40deg);
+    transition: 0.5s;
+}
+.drop.active::before {
+    right: 20px;
+}
+.drop::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    right: 19px;
+    width: 12px;
+    height: 2px;
+    background-color: rgba(15, 14, 14);
+    z-index: 10;
+    transform: rotate(-40deg);
+    transition: 0.5s;
+}
+.drop.active::after {
+    right: 28px;
+}
+.drop input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.drop .option {
+    position: absolute;
+    width:100%;
+    top:100px;
+    background-color:#fff;
+    box-shadow: 0 30px 30px rgb(241, 237, 237);
+    border-radius: 20px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+}
+.drop.active .option {
+visibility:visible;
+opacity: 1;
+}
+.drop .option div{
+    padding:12px 20px;
+    cursor: pointer;
+}
+.drop .option div:hover{
+    background-color:  rgb(14, 209, 235);
+    color:#fff;
+}
