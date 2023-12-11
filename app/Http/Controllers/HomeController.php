@@ -14,4 +14,10 @@ class HomeController extends Controller
     function logo(){
         return view('frontend.logo');
     }
+    function giohang(){
+        return view('frontend.giohang');
+    }
+    function thanhtoan(){
+        return view('frontend.thanhtoan');
+    }
 }

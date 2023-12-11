@@ -1,0 +1,34 @@
+.your-cart {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom:20px;
+}
+.action{
+    text-align:right;
+    margin-bottom:25px;
+}
+.payment{
+    margin-top:35px;
+    padding:0 15px;
+}
+.payment .group{
+    margin-bottom:15px;
+}
+.payment .group label{
+    display:block;
+    font-weight: 500;
+}
+.payment .group label span{
+    color:red;
+}
+.payment .group input{
+    width:100%;
+    height:35px;
+    border:none;
+    outline:none;
+    padding:6px 10px;
+}
+.payment .group input:focus{
+    outline: 2px solid #bdc3c7;
+}
