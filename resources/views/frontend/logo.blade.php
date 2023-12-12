@@ -19,7 +19,7 @@
             display: flex;
             justify-content: space-evenly;
             margin: 0px auto;
-            background: #000;
+            background: #f8f9fa;
             position:relative;
         }
 
@@ -32,12 +32,12 @@
             place-content: center;
             font-size: 18px;
             font-weight: 600;
-            color: #fff;
+            color: #000;
         }
 
         p {
             position: absolute;
-            color: #fff;
+            color: #000;
             font-size: 10px;
             top: 16px;
             right: 13px;

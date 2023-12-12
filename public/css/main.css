@@ -7,7 +7,7 @@
 body {
     width: 100%;
     background-color: #e7ecf4;
-    font-family: "Courgette", cursive;
+    font-family: Arial, Helvetica, sans-serif;
 }
 #wp-warpper #wp-header {
     background-color: #222222;
@@ -31,7 +31,7 @@ body {
 }
 #wp-warpper #wp-header .content .ct-header .search {
     margin-right: 350px;
-    padding-top:4px;
+    padding-top: 4px;
 }
 #wp-warpper #wp-header .content .ct-header .search input.font {
     width: 280px;
@@ -112,10 +112,27 @@ body {
 /* end #wp-warpper #wp-body .content  menu */
 #wp-warpper #wp-body .content .wp-content #sidebar {
     display: flex;
+    width:100%;
+    min-height:200px
+}
+#wp-warpper #wp-body .content .wp-content #sidebar-cart {
+    width:100%;
+    min-height:200px
 }
 #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-left {
     width: 730px;
     height: auto;
+}
+#wp-warpper #wp-body .content .wp-content #sidebar-payment {
+    display: flex;
+    width:100%;
+    min-height:200px
+}
+#wp-warpper #wp-body .content .wp-content #sidebar-payment .sidebar-left{
+    width:40%;
+}
+#wp-warpper #wp-body .content .wp-content #sidebar-payment .sidebar-right{
+    width:60%;
 }
 /* #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-left .carousel ol.carousel-indicators li.update{
     width: 10px;
@@ -186,6 +203,7 @@ body {
     padding-right: 28px;
     background-color: #ffffff;
     border-radius: 5px;
+    text-align: center;
 }
 #wp-warpper
     #wp-body
@@ -240,8 +258,34 @@ body {
     li.product-item
     .price {
     text-align: center;
-    margin-top: 16px;
-    margin-bottom: 30px;
+    margin: 16px 0;
+}
+#wp-warpper
+    #wp-body
+    .content
+    .wp-content
+    #sidebar
+    .sidebar-left
+    .wp-product-light
+    ul.list-product
+    li.product-item
+    button {
+    margin-bottom: 25px;
+    padding:4px 8px;
+    font-size:14px;
+}
+#wp-warpper
+    #wp-body
+    .content
+    .wp-content
+    #sidebar
+    .sidebar-left
+    .wp-product-light
+    ul.list-product
+    li.product-item
+    button:hover {
+    background-color: #e74c3c;
+    color:#ffffff;
 }
 #wp-warpper
     #wp-body
@@ -261,7 +305,7 @@ body {
 #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-right {
     width: 382px;
     margin-left: 31px;
-    margin-top:35px;
+    margin-top: 35px;
 }
 #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-right a img {
     width: 100%;
