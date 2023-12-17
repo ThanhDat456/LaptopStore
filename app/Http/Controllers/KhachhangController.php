@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DonhangMail;
 
 class KhachhangController extends Controller
 {
@@ -36,6 +38,7 @@ class KhachhangController extends Controller
             $ct->dongiaban = $value->price;
             $ct->save();
         }
+        Mail::to(Auth::user()->email)->send(new DonhangMail($dh));
         return redirect()->route('khachhang.dathangthanhcong');
     }
     public function getDatHangThanhCong()

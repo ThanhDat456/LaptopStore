@@ -27,7 +27,7 @@
     @foreach($hangsanxuat as $value)
     <div class="item">
         <div class="box">
-            <a href="" class="box-item">{{ $value->tenhang }}</a>
+        <a href="{{ route('hangsanxuat.client',['slug'=>$value->tenhang_slug]) }}" class="box-item">{{ $value->tenhang }}</a>
         </div>
     </div>
     @endforeach
@@ -72,20 +72,8 @@
         </div>
     </div>
     <div class="sidebar-right">
-        <a href="" class="layer-8">
-            <img src="public/images/Layer 8.png" alt="" />
-        </a>
-        <a href="" class="layer-9">
-            <img src="public/images/Layer 9.png" alt="" />
-        </a>
-        <a href="" class="layer-10">
-            <img src="public/images/Layer 10.png" alt="" />
-        </a>
         <a href="" class="layer-11">
             <img src="public/images/Layer 11.png" alt="" />
-        </a>
-        <a href="" class="layer-12">
-            <img src="public/images/Layer 12.png" alt="" />
         </a>
         <a href="" class="layer-13">
             <img src="public/images/Layer 13.png" alt="" />

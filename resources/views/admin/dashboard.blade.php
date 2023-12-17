@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('content')
-<div class="row text-center my-3">
+<div class="row text-center m-3">
     <div class="col-md-3 p-0">
         <div class="card bg-info" style="width: 18rem;">
             <div class="card-body">

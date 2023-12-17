@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-    <link rel="stylesheet" href="public/css/main.css" />
-    <link rel="stylesheet" href="public/css/cart.css" />
+    <link rel="stylesheet" href="{{asset('/css/main.css')}}" />
+    <link rel="stylesheet" href="{{asset('/css/cart.css')}}" />
     <!-- OwlCarousel2 -->
-    <link rel="stylesheet" href="public/OwlCarousel2/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="public/OwlCarousel2/assets/owl.theme.default.min.css">
-    <script src="public/js/main.js"></script>
-    <script src="public/OwlCarousel2/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="{{asset('/OwlCarousel2/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/OwlCarousel2/assets/owl.theme.default.min.css')}}">
+    <script src="{{asset('/js/main.js')}}"></script>
+    <script src="{{asset('/OwlCarousel2/owl.carousel.min.js')}}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -25,11 +25,14 @@
             <div class="content">
                 <div class="ct-header">
                     <a href="{{ url('/') }}" class="logo">
-                        <img src="public/images/logo.png" alt="" class="img" />
+                        <img src="{{asset('/images/logo.png')}}" alt="" class="img" />
                     </a>
                     <div class="search">
-                        <input type="text" class="font" placeholder="Tìm Kiếm" />
-                        <input type="submit" class="submit" value="Tìm kiếm" />
+                        <form action="{{ route('search') }}" method="post">
+                            @csrf
+                            <input type="text" class="font" name="search" placeholder="Tìm Kiếm" />
+                            <input type="submit" class="submit" value="Tìm kiếm" />
+                        </form>
                     </div>
                     <div class="user-login">
                         <div class="user-icon">
@@ -38,7 +41,7 @@
                         <div class="username-login">
                             @if(Auth::user())
                             <span>Xin chào</span>
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" style="font-size:13px;"href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" style="font-size:13px;" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(Auth::user())
                                 {{ Auth::user()->username }}
                                 @endif

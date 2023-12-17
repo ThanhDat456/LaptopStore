@@ -115,10 +115,10 @@ body {
     padding: 8px 0;
     color: #ffffff;
     text-decoration: none;
-    background: #e74c3c;
+    background: #d14131;
 }
 .owl-carousel .item .box a.box-item:hover{
-    background: #d14131;
+    background: #e74c3c;
 }
 .owl-dots{
     display:none;
@@ -136,33 +136,6 @@ body {
     display: grid;
     place-items: center;
 }
-/* #wp-warpper #wp-body .content .wp-content .menu {
-    background-color: #eb1f27;
-    margin-bottom: 10px;
-}
-#wp-warpper #wp-body .content .wp-content .menu ul.menu-list {
-    list-style: none;
-    display: flex;
-}
-#wp-warpper #wp-body .content .wp-content .menu ul.menu-list li.menu-item {
-    border-right: 1px solid #c60a11;
-}
-#wp-warpper #wp-body .content .wp-content .menu ul.menu-list li.menu-item a {
-    display: block;
-    padding: 14px 13px;
-    color: #fceaea;
-    text-decoration: none;
-}
-#wp-warpper
-    #wp-body
-    .content
-    .wp-content
-    .menu
-    ul.menu-list
-    li.menu-item
-    a.active {
-    color: rgba(0, 0, 0);
-} */
 .mins{
     color: #ddd;
     border: 2px solid #ddd;
@@ -210,6 +183,10 @@ body {
 }
 #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-left {
     width: 730px;
+    height: auto;
+}
+#wp-warpper #wp-body .content .wp-content #sidebar .sidebar-left.sidebar-full {
+    width: 100%;
     height: auto;
 }
 #wp-warpper #wp-body .content .wp-content #sidebar-payment {
@@ -261,6 +238,7 @@ body {
     span {
     color: #000000;
     font-size: 18px;
+    border-bottom: 3px solid #3ddadd;
 }
 #wp-warpper
     #wp-body
@@ -273,7 +251,7 @@ body {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    padding-left:0;
 }
 #wp-warpper
     #wp-body
@@ -293,6 +271,19 @@ body {
     background-color: #ffffff;
     border-radius: 5px;
     text-align: center;
+    margin-right:12px;
+}
+#wp-warpper
+    #wp-body
+    .content
+    .wp-content
+    #sidebar
+    .sidebar-left.sidebar-full
+    .wp-product-light
+    ul.list-product
+    li.product-item {
+    width: 212px;
+    margin-bottom: 15px;
 }
 #wp-warpper
     #wp-body

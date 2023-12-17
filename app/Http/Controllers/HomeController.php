@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Hangsanxuat;
 use App\Models\SanPham;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,10 @@ class HomeController extends Controller
     }
     function thanhtoan()
     {
-        return view('frontend.thanhtoan');
+        if (Auth::check())
+            return view('frontend.thanhtoan');
+        else
+            return redirect()->route('login');
     }
     function themgiohang($tensanpham_slug)
     {
@@ -80,6 +84,23 @@ class HomeController extends Controller
             else
                 Cart::update($row_id, $quantity);
         }
-        return redirect()->route('giohang')->with('status','Cập nhật thành công');
+        return redirect()->route('giohang')->with('status', 'Cập nhật thành công');
+    }
+    function hangsanxuat_client($slug)
+    {
+        $hangsanxuat = Hangsanxuat::all();
+        $hangsanxuat_slug = Hangsanxuat::where('tenhang_slug', $slug)->get();
+        return view('frontend.hangsanxuat', compact('hangsanxuat', 'hangsanxuat_slug'));
+    }
+    function search(Request $request)
+    {
+        if (!empty($request->input('search'))) {
+            $search = $request->input('search');
+            $sanpham = Sanpham::where('tensanpham', 'LIKE', "%$search%")->get();
+            $hangsanxuat = Hangsanxuat::all();
+            return view('frontend.search', compact('search', 'sanpham', 'hangsanxuat'));
+        } else {
+            return redirect()->route('trangchu');
+        }
     }
 }
