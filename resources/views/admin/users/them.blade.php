@@ -6,58 +6,48 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-head text-center">
-                        <h5 class="mt-3">Thêm sản phẩm mới</h5>
+                        <h5 class="mt-3">Thêm thành viên quản trị</h5>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="col-md-12">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Tên sản phẩm</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Đường dẫn thân thiện</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Số lượng</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Đơn giá</label>
+                    <form action="{{ route('user.postthem') }}" method="post">
+                        @csrf
+                        <div class="col-md-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" name="name">
+                                <label for="floatingInput">Họ và tên</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" name="email">
+                                <label for="floatingInput">Email</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <label for="floatingInput">Mật khẩu</label>
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <label for="floatingInput">Xác nhận password</label>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text w-25" id="basic-addon1">Hình ảnh</span>
-                            <input type="file" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            <span class="input-group-text w-25" id="basic-addon1">Phân quyền</span>
+                            <select class="form-select" aria-label="Default select example" name="role">
+                                <option value="Admintrator">Quản trị viên</option>
+                                <option value="subscriber">Khách hàng</option>
+                            </select>
                         </div>
-                        <div class="form-floating mb-3">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Mô tả</label>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text w-25" id="basic-addon1">Loại sản phẩm</span>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text w-25" id="basic-addon1">Hãng sản xuất</span>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn bg-primary py-2 px-5 text-light mt-1 mb-3 float-end" value="thêm">Thêm</button>
+                        <button type="submit" class="btn bg-primary py-2 px-5 text-light mt-1 mb-3 float-end" value="thêm" name="them">Thêm</button>
+                    </form>
                 </div>
                 <div class="col-md-2"></div>
             </div>

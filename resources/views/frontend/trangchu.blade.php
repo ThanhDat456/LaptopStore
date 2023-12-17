@@ -1,6 +1,6 @@
 @extends('layout.frontend')
 @section('content')
-<div class="carousel slide carousel-fade" id="home-slide">
+<div class="carousel slide carousel-fade mt-2" id="home-slide">
     <ol class="carousel-indicators">
         <li data-target="#home-slide" class="update active" data-slide-to="0"></li>
         <li data-target="#home-slide" class="update" data-slide-to="1"></li>
@@ -18,37 +18,57 @@
         </div>
     </div>
 </div>
+@if (session()->has('status'))
+<div class="alert alert-success text-center">
+    <i class="bi bi-check-circle" style="font-size:35px;"></i>{{ session()->get('status') }}
+</div>
+@endif
+<div class="owl-carousel owl-theme my-2">
+    @foreach($hangsanxuat as $value)
+    <div class="item">
+        <div class="box">
+            <a href="" class="box-item">{{ $value->tenhang }}</a>
+        </div>
+    </div>
+    @endforeach
+</div>
 <div id="sidebar">
     <div class="sidebar-left">
         <div class="wp-product-light">
             <div class="product-light"><span>Sản phẩm mới</span></div>
             <ul class="list-product">
+                @foreach($sanphammoi->take(6) as $value)
                 <li class="product-item">
                     <a href="" class="product-thumb">
-                        <img src="public/images/img.png" alt="" />
+                        <img src="{{ url($value->hinhanh) }}" alt="" />
                     </a>
                     <a href="" class="product-name">
-                        <p>iPhone Xs Max 2 slim - 256GB</p>
+                        <p>{{ $value->tensanpham }}</p>
                     </a>
-                    <div class="price">Giá bán: <span>32.990.000đ</span></div>
-                    <button type="submit">Thêm giỏ hàng</button>
+                    <div class="price">Giá bán: <span>{{ number_format($value->dongia,0,'.','.') }}đ</span></div>
+                    <a href="{{ route('themgiohang',$value->tensanpham_slug) }}" class="add-cart">Thêm giỏ hàng</a>
                 </li>
+                @endforeach
             </ul>
         </div>
         <div class="wp-product-light">
             <div class="product-light"><span>Sản phẩm</span></div>
+            {!! $sanpham->links() !!}
             <ul class="list-product">
+                @foreach($sanpham as $value)
                 <li class="product-item">
                     <a href="" class="product-thumb">
-                        <img src="public/images/img.png" alt="" />
+                        <img src="{{ url($value->hinhanh) }}" alt="" />
                     </a>
                     <a href="" class="product-name">
-                        <p>iPhone Xs Max 2 slim - 256GB</p>
+                        <p>{{ $value->tensanpham }}</p>
                     </a>
-                    <div class="price">Giá bán: <span>32.990.000đ</span></div>
-                    <button type="submit">Thêm giỏ hàng</button>
+                    <div class="price">Giá bán: <span>{{ number_format($value->dongia,0,'.','.') }}đ</span></div>
+                    <a href="{{ route('themgiohang',$value->tensanpham_slug) }}" class="add-cart">Thêm giỏ hàng</a>
                 </li>
+                @endforeach
             </ul>
+
         </div>
     </div>
     <div class="sidebar-right">

@@ -1,15 +1,14 @@
-
-.col-md-3{
-    display:grid;
+.col-md-3 {
+    display: grid;
     place-items: center;
 }
-.status{
-    margin-right:10px;
+.status {
+    margin-right: 10px;
     text-decoration: none;
     position: relative;
 }
-span{
-    color:#000;
+span {
+    color: #000;
 }
 span::after {
     content: "";
@@ -22,7 +21,22 @@ span::after {
     border-radius: 50px;
     transform: scaleX(0);
     transition: transform 0.2s linear;
-  }
-  .status:hover span::after {
+}
+.status:hover span::after {
     transform: scaleX(1);
-  }
+}
+.status-order {
+    text-decoration: none;
+    color: red;
+    font-weight: 600;
+}
+.status-order:hover {
+    color: red;
+}
+.status-order-success{
+    color:#2ecc71;
+}
+.status-order-success:hover{
+    color:#2ecc71;
+}
+

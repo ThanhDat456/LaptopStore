@@ -3,12 +3,15 @@
 <div class="row my-3">
     <div class="col-md-12">
         <div class="card">
+            @if(session('status'))
+            <div class="alert alert-success text-center">
+                {{session()->get('status')}}
+            </div>
+            @endif
             <div class="row">
                 <div class="col-md-8">
                     <div class="card-head text-center">
                         <h5 class="mt-3">Danh sách thành viên</h5>
-                        <a href="#" class="status"><span>Chờ duyệt</span></a>
-                        <a href="#" class="status"><span>Đã duyệt</span></a>
                     </div>
                 </div>
                 <div class="col-md-4 mt-3">
@@ -26,7 +29,6 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">#</th>
-                            <th scope="col">Hình ảnh</th>
                             <th scope="col">Họ và tên</th>
                             <th scope="col">Tên đăng nhập</th>
                             <th scope="col">Email</th>
@@ -35,30 +37,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users as $value)
                         <tr class="text-center">
-                            <th scope="row">1</th>
-                            <th><img src="{{ url('public/images/admin.jpg')  }}" style="width:40px; height:auto;border-radius:100%;"alt=""></th>
-                            <td>Tần Nhật Hào</td>
-                            <td>TuHaoThien</td>
-                            <td>Hao@gmail.com</td>
-                            <td>Admin</td>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->username }}</td>
+                            <td>{{ $value->email }}</td>
+                            <td>{{ $value->role == "Admintrator" ? 'Quản trị viên' : 'Khách hàng'  }}</td>
                             <td>
-                                <a href="" title="Sửa" class="text-light py-1 px-2 bg-primary me-1"><i class="bi bi-pencil-fill"></i></a>
-                                <a href="" title="Xóa" class="text-light py-1 px-2 bg-danger"><i class="bi bi-trash-fill"></i></a>
+                                <a href="{{ route('user.sua',$value->id) }}" title="Sửa" class="text-light py-1 px-2 bg-primary me-1"><i class="bi bi-pencil-fill"></i></a>
+                                <a href="{{ route('user.delete',$value->id) }}" onclick="return confirm('Bạn có chắc muốn xóa {{ $value->name }}')"title="Xóa" class="text-light py-1 px-2 bg-danger"><i class="bi bi-trash-fill"></i></a>
                             </td>
                         </tr>
-                        <tr class="text-center">
-                            <th scope="row">2</th>
-                            <th><img src="{{ url('public/images/user.png')  }}" style="width:40px; height:auto;border-radius:100%;"alt=""></th>
-                            <td>Nguyễn Ngọc Hóa</td>
-                            <td>MyNghi</td>
-                            <td>Hoa@gmail.com</td>
-                            <td>Khách hàng</td>
-                            <td>
-                                <a href="" title="Sửa" class="text-light py-1 px-2 bg-primary me-1"><i class="bi bi-pencil-fill"></i></a>
-                                <a href="" title="Xóa" class="text-light py-1 px-2 bg-danger"><i class="bi bi-trash-fill"></i></a>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

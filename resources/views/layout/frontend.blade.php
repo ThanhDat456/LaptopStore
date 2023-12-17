@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="public/css/main.css" />
     <link rel="stylesheet" href="public/css/cart.css" />
-
-    <title>Display</title>
+    <!-- OwlCarousel2 -->
+    <link rel="stylesheet" href="public/OwlCarousel2/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="public/OwlCarousel2/assets/owl.theme.default.min.css">
+    <script src="public/js/main.js"></script>
+    <script src="public/OwlCarousel2/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>LaptopStore</title>
 </head>
 
 <body>
@@ -24,8 +31,43 @@
                         <input type="text" class="font" placeholder="Tìm Kiếm" />
                         <input type="submit" class="submit" value="Tìm kiếm" />
                     </div>
+                    <div class="user-login">
+                        <div class="user-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <div class="username-login">
+                            @if(Auth::user())
+                            <span>Xin chào</span>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" style="font-size:13px;"href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(Auth::user())
+                                {{ Auth::user()->username }}
+                                @endif
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" style="color:#000;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Đăng xuất
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                            @else
+                            <a href="{{ route('login') }}">
+                                <span>Xin chào</span>
+                                <p class="user-name">
+                                    @if(Auth::user())
+                                    {{ Auth::user()->username }}
+                                    @else
+                                    Khách hàng
+                                    @endif
+                                </p>
+                            </a>
+                            @endif
+                        </div>
+                    </div>
                     <p class="cart">
-                        <a href="{{ route('giohang') }}">Giỏ hàng</a><span class="number"><a href="">8</a></span>
+                        <a href="{{ route('giohang') }}">Giỏ hàng</a><span class="number"><a href="">{{ Cart::count() ?? 0 }}</a></span>
                     </p>
                 </div>
             </div>
@@ -34,17 +76,6 @@
         <div id="wp-body">
             <div class="content">
                 <div class="wp-content">
-                    <div class="menu">
-                        <ul class="menu-list">
-                            <li class="menu-item active"><a href="">Macbook</a></li>
-                            <li class="menu-item"><a href="">Asus</a></li>
-                            <li class="menu-item"><a href="">MSI</a></li>
-                            <li class="menu-item"><a href="">Dell</a></li>
-                            <li class="menu-item"><a href="">HP</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- end menu  -->
                     @yield('content')
                 </div>
             </div>
@@ -57,7 +88,7 @@
                         <img src="public/images/LOGO_1.png" alt="" />
                     </a>
                     <p class="title-1">
-                       LaptopStore thành lập năm 2023. Chúng tôi mong rằng sẽ tạo ra một dịch vụ để phục vụ quý khách hàng
+                        LaptopStore thành lập năm 2023. Chúng tôi mong rằng sẽ tạo ra một dịch vụ để phục vụ quý khách hàng
                     </p>
                 </div>
                 <div class="info-2">
@@ -92,7 +123,36 @@
         </div>
     </div>
 </body>
-<script src="public/js/main.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#home-slide").carousel({
+            indicators: 4000,
+            ride: "carousel"
+        });
+    });
+</script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 10
+            },
+            1000: {
+                items: 10
+            }
+        }
+    })
+</script>
+
 <script>
     $(document).ready(function() {
         $(".menu-list .menu-item a").click(function() {
@@ -103,14 +163,7 @@
         });
     });
 </script>
-<script>
-    $(document).ready(function() {
-        $("#home-slide").carousel({
-            indicators: 4000,
-            ride: "carousel"
-        });
-    });
-</script>
+
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

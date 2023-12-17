@@ -2,33 +2,72 @@
     text-align: center;
     font-size: 24px;
     font-weight: 600;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
-.action{
-    text-align:right;
-    margin-bottom:25px;
+.action {
+    text-align: right;
+    margin-bottom: 25px;
 }
-.payment{
-    margin-top:35px;
-    padding:0 15px;
+.payment {
+    margin-top: 35px;
+    padding: 0 15px;
 }
-.payment .group{
-    margin-bottom:15px;
+.payment .group {
+    margin-bottom: 15px;
 }
-.payment .group label{
-    display:block;
+.payment .group label {
+    display: block;
     font-weight: 500;
 }
-.payment .group label span{
-    color:red;
+.payment .group label span {
+    color: red;
 }
-.payment .group input{
-    width:100%;
-    height:35px;
-    border:none;
-    outline:none;
-    padding:6px 10px;
+.payment .group input {
+    width: 100%;
+    height: 35px;
+    border: 2px solid #dddd;
+    outline: none;
+    padding: 6px 10px;
 }
-.payment .group input:focus{
+.payment .group input:focus {
     outline: 2px solid #bdc3c7;
+}
+.delete-cart {
+    color: #fff;
+    text-decoration: none;
+    background: #3498db;
+    display: inline-block;
+    width: 50px;
+    height: 27px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+}
+.delete-cart:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #53a3d9;
+}
+.add-cart {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 2px solid #f8f8f8;
+}
+.add-cart:hover {
+    border: 2px solid #dddd;
+   box-shadow: 5px 5px 6px #dddd ;
+   text-decoration: none;
+   color:#000;
+}
+#total{
+    text-align: right;
+    margin-bottom:25px;
+    font-weight: 600;
+}
+#total span{
+   padding-right:15px;
 }

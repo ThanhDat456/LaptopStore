@@ -6,7 +6,7 @@
 }
 body {
     width: 100%;
-    background-color: #e7ecf4;
+    background-color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 }
 #wp-warpper #wp-header {
@@ -30,7 +30,6 @@ body {
     height: 100%;
 }
 #wp-warpper #wp-header .content .ct-header .search {
-    margin-right: 350px;
     padding-top: 4px;
 }
 #wp-warpper #wp-header .content .ct-header .search input.font {
@@ -43,6 +42,30 @@ body {
     padding: 12px;
     background-color: #ffffff;
     color: #494949;
+}
+.user-login{
+    color:#fff;
+    display: flex;
+    justify-content: space-between;
+}
+.user-login .user-icon{
+    font-size:25px;
+    padding: 0px 8px;
+    border-right: 2px solid #27ae60;
+}
+.user-login .username-login{
+    margin-left:15px;
+}
+.user-login .username-login a{
+    text-decoration: none;
+    color:#ffff;
+}
+.user-login .username-login span{
+    font-size:11px;
+    color:#bdc3c7;
+}
+.user-login .username-login .user-name{
+    font-size:13px;
 }
 #wp-warpper #wp-header .content .ct-header .search input.submit {
     margin-left: -6px;
@@ -68,7 +91,7 @@ body {
 #wp-warpper #wp-header .content .ct-header .cart span.number {
     background-color: #eb1f27;
     border-radius: 50%;
-    padding: 8px 12px;
+    padding: 6px 13px;
     margin-left: 8px;
     cursor: pointer;
 }
@@ -80,8 +103,40 @@ body {
 }
 #wp-warpper #wp-body .content .wp-content {
     padding: 0px 11px;
+    min-height:400px;
 }
-#wp-warpper #wp-body .content .wp-content .menu {
+.owl-carousel .item .box{
+    width: 100%;
+    text-align: center;  
+}
+.owl-carousel .item .box a.box-item{
+    display: inline-block;
+    width: 109%;
+    padding: 8px 0;
+    color: #ffffff;
+    text-decoration: none;
+    background: #e74c3c;
+}
+.owl-carousel .item .box a.box-item:hover{
+    background: #d14131;
+}
+.owl-dots{
+    display:none;
+}
+.owl-nav{
+    display:none;
+}
+.alert.alert-success{
+    position: absolute;
+    width:300px;
+    height: 100px;
+    top: 60px;
+    right: 0px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+}
+/* #wp-warpper #wp-body .content .wp-content .menu {
     background-color: #eb1f27;
     margin-bottom: 10px;
 }
@@ -107,6 +162,40 @@ body {
     li.menu-item
     a.active {
     color: rgba(0, 0, 0);
+} */
+.mins{
+    color: #ddd;
+    border: 2px solid #ddd;
+    width: 27px;
+    display: inline-block;
+    text-align: center;
+}
+.mins:hover{
+    color: red;
+    border: 2px solid red;
+}
+.mins:hover .bi-dash{
+    color: red;
+}
+.plus{
+    color: #ddd;
+    border: 2px solid #ddd;
+    width: 27px;
+    display: inline-block;
+    text-align: center;
+}
+.plus:hover{
+    color: #2ecc71;
+    border: 2px solid #2ecc71;
+}
+.plus:hover .bi-plus-lg{
+    color: #2ecc71;
+}
+.qty{
+    width:60px;
+    border:2px solid #ddd;
+    text-align:center;
+    outline: none;
 }
 
 /* end #wp-warpper #wp-body .content  menu */
@@ -117,7 +206,7 @@ body {
 }
 #wp-warpper #wp-body .content .wp-content #sidebar-cart {
     width:100%;
-    min-height:200px
+    min-height:355px
 }
 #wp-warpper #wp-body .content .wp-content #sidebar .sidebar-left {
     width: 730px;
@@ -195,7 +284,7 @@ body {
     .wp-product-light
     ul.list-product
     li.product-item {
-    width: 230px;
+    width: 225px;
     min-height: 262px;
     margin-bottom: 10px;
     padding-top: 14px;
@@ -217,6 +306,30 @@ body {
     a.product-thumb {
     display: block;
     text-align: center;
+}
+#wp-warpper
+    #wp-body
+    .content
+    .wp-content
+    #sidebar
+    .sidebar-left
+    .wp-product-light
+    ul.list-product
+    li.product-item:hover{
+        box-shadow:0px 0px 8px #ddd;
+    }
+#wp-warpper
+    #wp-body
+    .content
+    .wp-content
+    #sidebar
+    .sidebar-left
+    .wp-product-light
+    ul.list-product
+    li.product-item
+    a.product-thumb img{
+    width:100%;
+    height: auto;
 }
 #wp-warpper
     #wp-body
@@ -313,7 +426,8 @@ body {
 }
 
 #wp-warpper #wp-info {
-    background-color: #ffffff;
+    background-color: #000;
+    color:#fff;
 }
 #wp-warpper #wp-info .info {
     width: 1142px;
@@ -339,12 +453,11 @@ body {
     width: 270px;
 }
 #wp-warpper #wp-info .info .info-2 .info-address {
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #fff;
     padding-bottom: 12px;
     margin-bottom: 16px;
 }
 #wp-warpper #wp-info .info .info-2 .info-address p {
-    color: #333333;
     font-size: 18px;
     margin-bottom: 0px;
 }
@@ -363,3 +476,4 @@ body {
     margin: 0px;
     padding: 14px 11px;
 }
+
