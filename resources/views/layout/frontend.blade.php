@@ -30,7 +30,7 @@
                     <div class="search">
                         <form action="{{ route('search') }}" method="post">
                             @csrf
-                            <input type="text" class="font" name="search" placeholder="Tìm Kiếm" />
+                            <input type="text" class="font" name="search" placeholder="Tìm Kiếm" value=" {{ request()->input('search') }}"/>
                             <input type="submit" class="submit" value="Tìm kiếm" />
                         </form>
                     </div>
