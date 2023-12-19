@@ -26,7 +26,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img style="width:200px;height:auto;" src="{{ asset($hang->hinhanh) }}" alt="">
+                                    <img style="width:200px;height:auto;" src="{{ url($hang->hinhanh) }}" alt="">
                                     <input type="hidden" name="hinhanh1" value="{{ $hang->hinhanh }}">
                                 </div>
                                 <div class="col-md-9">
