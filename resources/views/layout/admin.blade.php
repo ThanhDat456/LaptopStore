@@ -71,7 +71,7 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <img style="width:35px;" src="{{url('public/images/user.png')}}" alt="">
                             @if(Auth::user())
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->username }}
                             @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
